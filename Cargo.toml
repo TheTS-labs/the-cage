@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "maze", "maze_gen",
+]
+resolver = "2"
