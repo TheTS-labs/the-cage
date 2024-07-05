@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use ratatui::buffer::Buffer;
 use ratatui::layout::Rect;
-use ratatui::style::Color;
+use ratatui::style::{Color, Stylize};
 use ratatui::widgets::canvas::{Context, Line};
 
 use super::{Maze, MAZE_NODE_SIZE};
@@ -37,6 +37,14 @@ impl Object for Maze {
         let x_offset = (self.area.width - maze_size) / 2;
         let y_offset = ((self.area.height * 2) - maze_size) / 2;
 
+        if self.is_won {
+            ctx.print(
+                self.transform_pixel_x(self.character.character_pos[0]),
+                self.transform_pixel_y(self.character.character_pos[1] - 2),
+                "Yeah, you won".yellow(),
+            )
+        }
+
         for (i, row) in self.maze.maze.iter().rev().enumerate() {
             for (j, node) in row.iter().enumerate() {
                 MazeNode {
@@ -65,6 +73,12 @@ impl Object for Maze {
             ),
             Color::Green,
         ));
+
+        if self.character.character_pos[0] ==
+            (self.maze.exit.1 as u16 * MAZE_NODE_SIZE) + 1 + x_offset + MAZE_NODE_SIZE + 2
+        {
+            self.is_won = true;
+        }
 
         self.character.draw(ctx, forbidden_points);
     }

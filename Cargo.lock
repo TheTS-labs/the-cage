@@ -181,9 +181,10 @@ dependencies = [
 
 [[package]]
 name = "maze"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "maze_gen",
+ "rand",
  "ratatui",
 ]
 

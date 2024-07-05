@@ -13,10 +13,11 @@ pub const MAZE_NODE_SIZE: u16 = 3;
 
 #[derive(Clone, Debug)]
 pub struct Maze {
-    pub marker:            Marker,
-    pub character:         Character,
-    pub area:              Rect,
-    pub maze:              MazeGen,
+    pub marker:    Marker,
+    pub character: Character,
+    pub area:      Rect,
+    pub maze:      MazeGen,
+    pub is_won:    bool,
 }
 
 impl PixelCoords for Maze {}
@@ -31,6 +32,7 @@ impl Maze {
             character: Character::new([0, 0], Rect::default()),
             area: Rect::default(),
             maze,
+            is_won: false,
         }
     }
 }

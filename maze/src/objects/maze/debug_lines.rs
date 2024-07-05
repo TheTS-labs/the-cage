@@ -21,10 +21,14 @@ impl DebugLines for Maze {
                 "Size".cyan().bold(),
                 "/".into(),
                 "Seed".blue().bold(),
+                "/".into(),
+                "Won".green().bold(),
                 "): ".bold(),
                 self.maze.size.to_string().cyan().bold(),
                 " / ".into(),
                 self.maze.seed.to_string().blue().bold(),
+                " / ".into(),
+                self.is_won.to_string().green().bold()
             ]),
         ];
 

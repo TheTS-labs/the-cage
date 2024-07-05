@@ -6,18 +6,16 @@ use ratatui::crossterm::terminal::{disable_raw_mode, enable_raw_mode, EnterAlter
 use ratatui::crossterm::ExecutableCommand;
 use ratatui::Terminal;
 
-pub struct Tui {
-    pub terminal: Terminal<CrosstermBackend<Stdout>>
-}
+pub struct Tui;
 
 impl Tui {
-    pub fn init() -> io::Result<Tui> {
+    pub fn init() -> io::Result<Terminal<CrosstermBackend<Stdout>>> {
         stdout().execute(EnterAlternateScreen)?;
         enable_raw_mode()?;
         let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
         terminal.clear()?;
 
-        Ok(Tui { terminal })
+        Ok(terminal)
     }
 
     pub fn restore() -> io::Result<()> {
