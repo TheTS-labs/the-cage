@@ -26,9 +26,9 @@ impl Character {
         let forbidden = forbidden.borrow();
 
         forbidden.contains(&(x, y)) ||
-                forbidden.contains(&(x + 1, y + 1)) ||
-                forbidden.contains(&(x + 1, y)) ||
-                forbidden.contains(&(x, y + 1))
+            forbidden.contains(&(x + 1, y + 1)) ||
+            forbidden.contains(&(x + 1, y)) ||
+            forbidden.contains(&(x, y + 1))
     }
 
     pub fn new(character_pos: [u16; 2], area: Rect) -> Self {

@@ -34,11 +34,14 @@ impl MazeGen {
             start: (0, 0),
         };
 
-        _self.start = (_self.rng.gen_range(0.._self.size/3), _self.rng.gen_range(0.._self.size));
+        _self.start = (
+            _self.rng.gen_range(0.._self.size / 3),
+            _self.rng.gen_range(0.._self.size),
+        );
         _self.stack.push_front(_self.start);
-        _self.visited[_self.stack[0].0][_self.stack[0].1] = true;
+        _self.visited[_self.stack[0].1][_self.stack[0].0] = true;
 
-        _self.exit = (_self.size- _self.stack[0].1, _self.size - 1);
+        _self.exit = (_self.size - _self.stack[0].1, _self.size - 1);
 
         _self.maze[_self.exit.0][_self.exit.1] ^= Direction::Right.as_wall() as u8;
 

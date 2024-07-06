@@ -31,7 +31,7 @@ impl Tui {
         set_hook(Box::new(move |panic_info| {
             let _ = Tui::restore();
 
-            original_hook(panic_info); 
+            original_hook(panic_info);
         }));
     }
 }

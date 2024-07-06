@@ -6,10 +6,9 @@ use ratatui::buffer::Buffer;
 use ratatui::layout::Rect;
 use ratatui::widgets::canvas::Context;
 
-use crate::app::ForbiddenPoints;
-
 use super::debug_lines::DebugLines;
 use super::on_event::OnEvent;
+use crate::app::ForbiddenPoints;
 
 pub trait Object: Debug + OnEvent + DebugLines {
     #[allow(unused_variables)]

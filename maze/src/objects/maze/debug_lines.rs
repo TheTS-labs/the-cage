@@ -28,7 +28,7 @@ impl DebugLines for Maze {
                 " / ".into(),
                 self.maze.seed.to_string().blue().bold(),
                 " / ".into(),
-                self.is_won.to_string().green().bold()
+                self.is_won.to_string().green().bold(),
             ]),
         ];
 
