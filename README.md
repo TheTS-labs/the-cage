@@ -6,6 +6,23 @@
 
 A simple (I mean really simple) TUI maze with procedurally generated maps using the DFS algorithm. The only objective of the game is to get out
 
+## How to run
+
+Firstly, you will need Rust installed (refer to [Rust's docs](https://www.rust-lang.org/tools/install) for instructions).
+
+Then clone the repo:
+
+```terminal
+git clone https://github.com/TheTS-labs/the-cage.git
+cd the-cage
+```
+
+And run:
+
+```terminal
+cargo run -r
+```
+
 ## Controls
 
 - <kbd>Tab</kbd> to toggle debug menu
